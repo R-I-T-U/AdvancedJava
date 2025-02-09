@@ -15,13 +15,11 @@ public class calculator {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        // ================= Top Panel (Display) =================
         topPanel = new JPanel();
         display = new JTextField(25);
 
         topPanel.add(display);
 
-        // ================= Bottom Panel (Buttons) =================
         bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridLayout(4, 4, 5, 5)); // Grid layout for buttons
         String[] buttons = {
