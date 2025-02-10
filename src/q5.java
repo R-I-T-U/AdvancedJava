@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // Design a GUI form using swing with text-field, a text label for displaying the input message "Input any string"
 // and three button with caption checkPalindrome, Reverse, FindVowels. Write a complete program for above scenario and for checking palindrome in first button ,
@@ -39,6 +41,51 @@ public class q5 {
         f.add(b3);
         f.add(l2);
 
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String a = t1.getText();
+                boolean checkPalindrome = false;
+                for(int i = 0; i < a.length(); i++) {
+                    if(a.charAt(i) == a.charAt(a.length()-1-i)){
+                        checkPalindrome = true;
+                    }
+                }
+                if(checkPalindrome) {
+                    l2.setText("Palindrome");
+                }else
+                    l2.setText("Not Palindrome");
+
+
+            }
+        });
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String a = t1.getText();
+                String reverse = "";
+                for(int i = 0; i < a.length(); i++) {
+                        reverse += a.charAt(a.length()-1-i);
+                }
+                l2.setText("Reversed: "+reverse);
+            }
+        });
+        b3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String a = t1.getText();
+                String vowels = "aeiouAEIOU";
+                String vowel ="";
+                for(int i = 0; i < a.length(); i++) {
+                    for(int j = 0; j < vowels.length(); j++) {
+                        if(a.charAt(i) == vowels.charAt(j)){
+                            vowel += a.charAt(i);
+                        }
+                    }
+                }
+                l2.setText("Vowels: "+vowel);
+            }
+        });
 
     }
     public static void main(String[] args) {
