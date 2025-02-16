@@ -1,5 +1,6 @@
+package lab1;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,25 +41,27 @@ public class q5 {
         f.add(b2);
         f.add(b3);
         f.add(l2);
-
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String a = t1.getText();
-                boolean checkPalindrome = false;
-                for(int i = 0; i < a.length(); i++) {
-                    if(a.charAt(i) == a.charAt(a.length()-1-i)){
-                        checkPalindrome = true;
+                boolean checkPalindrome = true; // Assume it's a palindrome initially
+
+                for (int i = 0; i < a.length() / 2; i++) {
+                    if (a.charAt(i) != a.charAt(a.length() - 1 - i)) {
+                        checkPalindrome = false;
+                        break; // Stop checking if a mismatch is found
                     }
                 }
-                if(checkPalindrome) {
+
+                if (checkPalindrome) {
                     l2.setText("Palindrome");
-                }else
+                } else {
                     l2.setText("Not Palindrome");
-
-
+                }
             }
         });
+
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

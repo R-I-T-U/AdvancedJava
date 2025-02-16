@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class EmployeeForm {
     JFrame frame;
@@ -15,7 +17,7 @@ public class EmployeeForm {
     public EmployeeForm() {
         frame = new JFrame("Employee Form");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 500);
+        frame.setSize(600, 600);
         frame.setLayout(null);
 
         // Labels and Text Fields
@@ -86,7 +88,7 @@ public class EmployeeForm {
 
         // Output Text Area
         t = new JTextArea();
-        t.setBounds(20, 310, 380, 100);
+        t.setBounds(20, 310, 380, 200);
 
         // Adding components to frame
         frame.add(l1);
@@ -111,6 +113,44 @@ public class EmployeeForm {
 
         // Show frame
         frame.setVisible(true);
+
+        b1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Get input values
+                String name = t1.getText();
+                String email = t2.getText();
+                String password = String.valueOf(p1.getPassword());
+
+                // Get selected DOB
+                String dob = monthBox.getSelectedItem() + " " + dayBox.getSelectedItem() + ", " + yearBox.getSelectedItem();
+
+                // Get selected gender
+                String gender = "";
+                if (r1.isSelected()) {
+                    gender = "Male";
+                } else if (r2.isSelected()) {
+                    gender = "Female";
+                }
+
+                // Get selected hobbies
+                String hobbies = "";
+                if (c1.isSelected()) hobbies += "Coding ";
+                if (c2.isSelected()) hobbies += "Designing ";
+                if (c3.isSelected()) hobbies += "Gaming ";
+
+                // Format output
+                String output = "Employee Details \n"
+                        + "Name: " + name + "\n"
+                        + "Email: " + email + "\n"
+                        + "Password: " + password + "\n"
+                        + "DOB: " + dob + "\n"
+                        + "Gender: " + gender + "\n"
+                        + "Hobbies: " + (hobbies.isEmpty() ? "None" : hobbies) ;
+                // Display in JTextArea
+                t.setText(output);
+            }
+        });
+
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
+package lab1;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class q6_e {
     JFrame frame;
