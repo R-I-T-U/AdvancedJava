@@ -62,8 +62,8 @@ public class q1 {
         frame.add(b1);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-        frame.setLayout(new FlowLayout());
+        frame.setSize(400, 500);
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setVisible(true);
 
         b1.addActionListener(new ActionListener() {
@@ -90,7 +90,7 @@ public class q1 {
                     hobbies += "Gaming ";
 
                 String country = cb.getSelectedItem().toString();
-                String opinion = t4.getText();
+                String opinion = ta.getText();
                 JOptionPane.showMessageDialog(frame, "Name: "+name+" \n Address:"+address+" \n Email:"+email+" \n gender:"+gender+" \n password:"+password+" \n hobbies:"+hobbies+" \n Country:"+country+" \n Opinion:"+opinion);
             }
         });

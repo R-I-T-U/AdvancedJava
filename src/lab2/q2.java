@@ -1,39 +1,40 @@
 package lab2;
-// wajp to implement slider and JScrollpane component in swing.
 
 import javax.swing.*;
 import java.awt.*;
+// wajp to implement slider and JScrollpane component in swing.
 
 public class q2 {
-    JFrame frame;
-    JTextArea textArea;
-    JScrollPane scrollPane;
-    JSlider slider;
-    JLabel l1, l2;
     public q2() {
-        frame = new JFrame();
-        l1 = new JLabel("comment: ");
-        l2 = new JLabel("Age: ");
-        textArea = new JTextArea(10, 10);
-        scrollPane = new JScrollPane(textArea);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        JFrame f = new JFrame("Slider & ScrollPane");
+        f.setLayout(new BorderLayout(10, 10));
 
-        slider = new JSlider(0, 60, 10);
-        slider.setMajorTickSpacing(10);
-        slider.setMinorTickSpacing(5);
-        slider.setPaintTicks(true);
-        slider.setPaintLabels(true);
+        JPanel p1 = new JPanel(new FlowLayout());
+        JLabel l1 = new JLabel("Age: ");
+        JSlider s = new JSlider(0, 60, 10);
+        s.setMajorTickSpacing(10);
+        s.setMinorTickSpacing(5);
+        s.setPaintTicks(true);
+        s.setPaintLabels(true);
+        p1.add(l1);
+        p1.add(s);
 
-        frame.setSize(300, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new GridLayout(2, 2, 10,10));
-        frame.setVisible(true);
+        JPanel p2 = new JPanel(new BorderLayout());
+        JLabel l2 = new JLabel("Comment: ");
+        JTextArea ta = new JTextArea(5, 20);
+        JScrollPane sp = new JScrollPane(ta);
+        sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        p2.add(l2, BorderLayout.NORTH);
+        p2.add(sp, BorderLayout.CENTER);
 
-        frame.add(l2);frame.add(slider);
-        frame.add(l1);frame.add(scrollPane);
+        f.add(p1, BorderLayout.NORTH);
+        f.add(p2, BorderLayout.CENTER);
 
+        f.setSize(300, 300);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
     }
+
     public static void main(String[] args) {
         new q2();
     }
