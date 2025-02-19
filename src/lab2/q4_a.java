@@ -23,7 +23,7 @@ public class q4_a {
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
+        frame.setSize(200, 200);
 
         frame.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {

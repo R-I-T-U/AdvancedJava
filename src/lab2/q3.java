@@ -7,15 +7,15 @@ import java.awt.event.KeyEvent;
 
 // wajp to create Menu and menu item with Acceletor and mnemonics. And handle appropriate event when menu item is clicked.
 public class q3 {
-    JFrame frame;
-    JMenuBar menuBar;
-    JMenu menu;
+    JFrame f;
+    JMenuBar mb;
+    JMenu m;
     JMenuItem i1, i2;
     public q3() {
-        frame = new JFrame("accelerator");
-        menuBar = new JMenuBar();
-        menu = new JMenu("File");
-        menuBar.add(menu);
+        f = new JFrame("accelerator");
+        mb = new JMenuBar();
+        m = new JMenu("File");
+        mb.add(m);
         i1 = new JMenuItem("Open");
         i1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_DOWN_MASK));
 
@@ -23,22 +23,22 @@ public class q3 {
         i2.setMnemonic(KeyEvent.VK_N);
         i2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.ALT_DOWN_MASK));
 
-        frame.setJMenuBar(menuBar);
-        menuBar.add(menu);
-        menu.add(i1);
-        menu.add(i2);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-        frame.setVisible(true);
+        f.setJMenuBar(mb);
+        mb.add(m);
+        m.add(i1);
+        m.add(i2);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setSize(300, 300);
+        f.setVisible(true);
 
         i1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "Open File");
+                JOptionPane.showMessageDialog(f, "Open File");
             }
         });
         i2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "New File");
+                JOptionPane.showMessageDialog(f, "New File");
             }
         });
     }
